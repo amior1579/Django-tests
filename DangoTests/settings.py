@@ -28,8 +28,8 @@ SECRET_KEY = 'django-insecure-_t#fy3a4k6_^p*8rmae*yb5ke^#iqmqmzmu(r)ljn8ni7mc(wu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['amior79.pythonanywhere.com']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['amior79.pythonanywhere.com']
 
 
 # Application definition
@@ -85,6 +85,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'amior79$djangoTests',
+#         'USER': 'amior79',
+#         'PASSWORD': 'Q1w2e3r4t5y6u7i8o9',
+#         'HOST': 'amior79.mysql.pythonanywhere-services.com',
+#         'OPTIONS': {
+#             'sql_mode': 'traditional',
+#         }
+#     }
+# }
 
 
 # Password validation
