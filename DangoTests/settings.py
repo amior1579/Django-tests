@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +28,7 @@ SECRET_KEY = 'django-insecure-_t#fy3a4k6_^p*8rmae*yb5ke^#iqmqmzmu(r)ljn8ni7mc(wu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['amior79.pythonanywhere.com']
 
 
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'DangoTests.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(SETTINGS_PATH, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +71,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'DangoTests.wsgi.application'
 
