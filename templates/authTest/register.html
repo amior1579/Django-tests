@@ -13,7 +13,9 @@
     <div class="div_register_form">
         <fieldset>
             <legend>Register form</legend>
-            <form action="" method="post">
+            <h4>{{message}}</h4>
+            <h4>{{username_exists_message}}</h4>
+            <form action="{% url 'user_registration' %}" method="post">
                 {% csrf_token %}
                 <label>Username:       <input type="text"     name="username"></label>
                 <label>Password:       <input type="password" name="password"></label>
