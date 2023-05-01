@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -10,12 +11,12 @@ def home(request):
     })
 
 
-def login(request):
+def login_page(request):
     return render(request, 'authTest/login.html',{
         
     })
 
-def register(request):
+def register_page(request):
     return render(request, 'authTest/register.html',{
 
     })
@@ -43,3 +44,10 @@ def user_registration(request):
         
     else:
         return render(request, 'authTest/register.html')
+
+
+
+def logout_user(request):
+    logout(request)
+
+    return redirect('home')
