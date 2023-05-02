@@ -1,8 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.parsers import JSONParser
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import *
+from .serializers import *
 
 
 def home(request):
@@ -65,3 +69,16 @@ def logout_user(request):
     logout(request)
 
     return redirect('home')
+
+
+
+# API
+@csrf_exempt
+def users_api(request):
+        user_auth = UserAuth.objects.all()
+        if request.method == 'GET':
+            # print(user_auth)
+            serializer = UserSerializer(user_auth, many=True)
+            return JsonResponse(serializer.data, safe=False)
+        else:
+            return JsonResponse({"error": "GET or PUT request required."}, status=400)
